@@ -1,316 +1,56 @@
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sohel Sayyad | Developer Dashboard</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sayyad Sohel | Developer Dashboard</title>
 <style>
-:root {
-  --bg:#020817; --panel:#061226; --border:#173253;
-  --cyan:#22d3ee; --purple:#8b5cf6; --text:#edf4ff; --muted:#a6b8d6;
-}
-*{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--text);font:14px/1.6 Inter,system-ui,sans-serif}
-a{color:inherit;text-decoration:none}
-a:hover{color:var(--cyan)}
-nav{height:55px;display:flex;align-items:center;justify-content:space-between;
-padding:0 24px;border-bottom:1px solid var(--border);background:#030b19;gap:16px}
-.brand{font-weight:750;font-size:17px}
-.navlinks{display:flex;gap:24px;color:#bdc9df}
-.navlinks a:first-child{color:var(--cyan);border-bottom:2px solid var(--cyan);padding:15px 0}
-.hero{min-height:250px;padding:35px;display:flex;align-items:center;gap:25px;
-background:linear-gradient(90deg,#020817 0%,rgba(2,8,23,.9) 40%,rgba(18,24,68,.3)),
-url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1800&q=85') center 48%/cover;
-border-bottom:1px solid var(--border)}
-.avatar{width:135px;height:135px;border-radius:50%;object-fit:cover;
-border:4px solid var(--purple);box-shadow:0 0 25px #2563eb88}
-h1{font-size:30px;margin:0}
-.muted{color:var(--muted)}
-.hero p{margin:6px 0}
-.layout{display:grid;grid-template-columns: minmax(220px,.95fr) minmax(350px,2fr) minmax(220px,.95fr);gap:24px;padding:24px}
-.panel{background:linear-gradient(145deg,#07152b,#030b19);border:1px solid var(--border);
-border-radius:13px;padding:17px;min-width:0}
-.panel h3{margin:0 0 13px;font-size:15px}
-.panel h3 span{color:var(--cyan);margin-right:7px}
-.left .panel{margin-bottom:14px}
-.skill-list{display:flex;flex-wrap:wrap;gap:8px}
-.skill{padding:5px 10px;border:1px solid #244365;border-radius:20px;background:#0b1b32}
-.terminal{min-height:185px;display:flex;flex-direction:column;justify-content:center;
-background:radial-gradient(ellipse at 80% 50%,#142d70 0,transparent 48%),#040d20;
-position:relative;overflow:hidden}
-.dots{display:flex;gap:6px;margin-bottom:25px}
-.dots i{width:11px;height:11px;border-radius:50%;background:#6366f1}
-.dots i:nth-child(2){background:#2dd4bf}.dots i:nth-child(3){background:#c084fc}
-.command{font:clamp(16px,2vw,25px) ui-monospace,monospace;color:var(--cyan)}
-.cursor{display:inline-block;width:8px;height:22px;background:var(--cyan);
-vertical-align:middle;animation:blink .8s steps(2) infinite}
-@keyframes blink{50%{opacity:0}}
-@keyframes glow{50%{box-shadow:0 0 22px #22d3ee28}}
-.panel,.project{animation:glow 5s ease-in-out infinite}
-.section{margin-top:18px}
-.learning{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
-.progress{height:9px;background:#142641;border-radius:20px;overflow:hidden;margin:12px 0}
-.progress div{height:100%;width:65%;background:linear-gradient(90deg,#6366f1,#22d3ee)}
-.projects{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
-.project{display:block;padding:13px;background:#061329;border:1px solid var(--border);
-border-radius:11px;transition:transform .2s,border-color .2s}
-.project:hover{transform:translateY(-4px);border-color:var(--cyan)}
-.project strong{display:block;overflow-wrap:anywhere}
-.project small{color:var(--muted)}
-.stats{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.stat b{display:block;font-size:22px}
-.bar{height:8px;border-radius:8px;background:#172b49;margin:6px 0 12px;overflow:hidden}
-.bar div{height:100%;background:linear-gradient(90deg,#8b5cf6,#22d3ee)}
-.graph{width:100%;border-radius:5px;image-rendering:auto}
-.quote{font-size:15px;color:#d4ddf4;font-style:italic}
-footer{text-align:center;color:var(--muted);padding:24px;border-top:1px solid var(--border)}
-button{background:#0b2740;color:var(--cyan);border:1px solid var(--border);
-padding:8px 12px;border-radius:8px;cursor:pointer}
-@media(max-width:1050px){.layout{grid-template-columns:1fr 1.7fr}.right{grid-column:1/-1;display:grid;grid-template-columns:repeat(2,1fr);gap:14px}.right .panel{margin:0}}
-@media(max-width:680px){nav{padding:0 14px}.navlinks{gap:12px;font-size:12px}.navlinks a:nth-child(n+3){display:none}
-.hero{padding:25px 18px;gap:16px;align-items:flex-start}.avatar{width:85px;height:85px}h1{font-size:23px}
-.layout{display:flex;flex-direction:column;padding:13px;gap:14px}.right{display:flex;flex-direction:column}
-.projects{grid-template-columns:1fr}.hero .muted{font-size:12px}}
+:root{--bg:#020918;--panel:#031126;--line:#173252;--text:#eef4ff;--muted:#a9bddc;--cyan:#13dfff;--blue:#397cff;--purple:#9c3dff;--green:#25e7b7}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--text);background:radial-gradient(ellipse at 50% 0,#0b1d42 0,#020918 48%,#010611 100%);font:14px/1.5 Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}a{color:inherit;text-decoration:none}a:hover{color:var(--cyan)}.topbar{height:54px;display:flex;align-items:center;gap:25px;padding:0 28px;background:#030916;border-bottom:1px solid #142542}.brand{display:flex;align-items:center;gap:12px;font-size:16px;font-weight:650;white-space:nowrap}.gh{width:28px;height:28px;border-radius:50%;background:#f5f7ff;color:#07101d;display:grid;place-items:center;font-size:20px}.nav{height:100%;display:flex;align-items:center;gap:30px;color:#c4cde0}.nav a{height:100%;display:flex;align-items:center;padding:0 4px;position:relative}.nav .active{color:var(--cyan)}.nav .active:after{content:"";position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--cyan);box-shadow:0 0 16px var(--cyan)}.search{margin-left:auto;width:265px;border:1px solid #233451;border-radius:9px;background:#080f20;padding:7px 11px;color:#aab9d3;font-size:12px}.topicon{font-size:20px;color:#c4d1e7}
+.hero{position:relative;min-height:242px;overflow:hidden;border-bottom:1px solid #17304e;background:#04102b}.hero-bg{position:absolute;inset:0;background:linear-gradient(90deg,rgba(2,9,24,.97),rgba(2,9,24,.82) 37%,rgba(2,9,24,.1)),url("https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=2200&q=90") center 46%/cover}.hero-inner{position:relative;min-height:242px;display:flex;align-items:center;padding:28px 34px;gap:28px}.avatar-ring{width:168px;height:168px;flex:none;border-radius:50%;padding:5px;background:linear-gradient(140deg,#42c8ff,#6a40ff);box-shadow:0 0 25px #2563eb77}.avatar{width:100%;height:100%;border-radius:50%;object-fit:cover;border:3px solid #07152a;background:#10203c}.identity h1{font-size:29px;line-height:1.2;margin:0 0 4px;font-weight:750;letter-spacing:-.7px}.handle{font-size:16px;color:#b2c7e9;margin-bottom:13px}.headline,.tagline{font-size:15px;margin:0 0 5px}.tagline{margin-bottom:15px}.meta{display:flex;gap:28px;flex-wrap:wrap;color:#b7c9e5;font-size:14px}.quote-top{margin-left:auto;align-self:flex-start;padding:10px 30px 0 0;font-size:16px;font-weight:650;line-height:1.4;max-width:110px}.quote-top:after{content:"";display:block;width:44px;height:2px;background:var(--cyan);margin-top:10px;box-shadow:0 0 10px var(--cyan)}
+.layout{display:grid;grid-template-columns:minmax(265px,.96fr) minmax(520px,2.05fr) minmax(270px,.94fr);gap:24px;padding:19px 25px 26px;max-width:1800px;margin:auto;align-items:stretch}.panel{border:1px solid var(--line);border-radius:13px;background:linear-gradient(145deg,rgba(3,17,37,.97),rgba(1,11,25,.96));box-shadow:inset 0 1px 0 #ffffff04;overflow:hidden}.left{padding:15px 17px 18px}.section-title{display:flex;align-items:center;gap:10px;font-size:15px;font-weight:700;margin:0 0 13px}.ico{color:#7d83ff;font-size:18px;line-height:1}.about{font-size:14px;line-height:1.64;color:#e0e8f7;margin:0 0 16px}.rule{height:1px;background:#173252;margin:17px 0}.skill-wrap{display:flex;flex-wrap:wrap;gap:8px}.skill{border:1px solid #203a5d;border-radius:22px;padding:6px 11px;background:linear-gradient(90deg,#0a203e,#07152b);display:flex;align-items:center;gap:7px;font-size:12px;white-space:nowrap}.skill b{font-size:15px}.links{display:grid;gap:11px;color:#b9cbed}.links a{display:flex;gap:10px;align-items:center}.linkicon{color:#9bc2ff;font-size:17px;width:18px}
+.middle{display:flex;flex-direction:column;gap:19px;min-width:0}.terminal{height:185px;position:relative;padding:18px 23px;background:radial-gradient(ellipse at 80% 50%,#091d60,#040d27 50%,#020b1d);border-color:#30228d}.terminal:before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(155deg,transparent 0 24px,rgba(28,79,220,.1) 25px,transparent 26px),radial-gradient(ellipse at 95% 90%,#1428a855,transparent 45%);pointer-events:none}.dots{display:flex;gap:7px;position:relative}.dot{width:11px;height:11px;border-radius:50%;background:#476bff}.dot:nth-child(2){background:#31d5b5}.dot:nth-child(3){background:#b43df4}.terminal-content{position:relative;margin:32px 0 0 42px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace}.hello{font-size:25px;white-space:nowrap}.prompt{color:#7777ff;margin-right:10px}.hello strong{color:#13e3f6;font-weight:600}.terminal-sub{margin:10px 0 0 35px;color:#99a9ff;font-size:14px}.laptop{position:absolute;right:6%;top:46px;width:135px;height:94px;color:#11d8ff;filter:drop-shadow(0 0 10px #1468ff)}
+.journey{padding:16px 17px 10px}.journey-grid{display:grid;grid-template-columns:1.15fr .9fr;gap:20px}.cdac-row{display:flex;align-items:center;gap:18px;margin:4px 0 12px}.cdac-logo{font-size:22px;line-height:1.1;font-weight:850;letter-spacing:-1px}.cdac-logo small{display:block;font-size:10px;letter-spacing:2px}.cdac-name{font-size:16px;font-weight:650;white-space:nowrap}.badge{border-radius:9px;padding:3px 11px;color:#39f8e7;background:#03444c;font-size:12px;font-weight:650;white-space:nowrap}.progress{height:12px;border-radius:20px;background:#122643;overflow:hidden;margin:10px 0 11px}.progress span{display:block;height:100%;width:49%;border-radius:20px;background:linear-gradient(90deg,#655bff,#398aff)}.journey-foot{display:flex;justify-content:space-between;align-items:center;color:#a9bee0;font-size:12px}.arrow{color:var(--cyan);font-size:18px}.goals{border:1px solid #152e4e;border-radius:12px;background:#061327;padding:13px 15px}.goals h3{font-size:13px;margin:0 0 10px;font-weight:650}.goals ul{padding:0;margin:0;list-style:none;display:grid;gap:5px;color:#dce8fa;font-size:12px}.goals li:before{content:"✓";color:#22e8ed;font-weight:800;font-size:16px;margin-right:10px}
+.projects{padding:13px 12px 8px}.project-head{display:flex;justify-content:space-between;align-items:center;margin:0 4px 12px}.project-head .section-title{margin:0}.viewall{font-size:12px;color:var(--cyan)}.project-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}.project{min-width:0;min-height:130px;border:1px solid #183657;border-radius:11px;padding:12px 13px 10px;background:linear-gradient(145deg,#06172c,#030d1d);display:flex;flex-direction:column;transition:transform .2s,border-color .2s,box-shadow .2s}.project:hover{transform:translateY(-3px);border-color:#168ed5;box-shadow:0 0 22px #087bff24}.project-symbol{font-size:27px;color:#12dfff;line-height:1.2}.project:nth-child(2) .project-symbol{color:#5c62ff}.project:nth-child(3) .project-symbol{color:#22edda}.project h3{font-size:12px;margin:0 0 4px;font-weight:700}.project p{font-size:11px;color:#a9bddc;margin:0 0 10px;line-height:1.4}.project-bottom{display:flex;align-items:center;justify-content:space-between;margin-top:auto}.status{font-size:11px;padding:3px 10px;border-radius:20px;background:#07348c}.status.progressing{background:#07556b}.motto{min-height:61px;border:1px solid #622bdb;border-radius:12px;display:flex;align-items:center;justify-content:space-between;padding:8px 20px;background:radial-gradient(ellipse at 50% 100%,#081c64,#020c24 70%);position:relative;overflow:hidden}.motto:before{content:"";position:absolute;inset:0;background:linear-gradient(120deg,transparent,#4a1d9b24,transparent);animation:shine 5s infinite}.motto q{position:relative;color:#29edb6;font-weight:650}.spark{font-size:25px;color:#397aff;text-shadow:0 0 12px #386aff}
+.right{display:flex;flex-direction:column;gap:13px;min-width:0}.stats{padding:14px 15px 0}.right-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:11px}.right-head .section-title{margin:0}.small-link{font-size:11px;color:var(--cyan);white-space:nowrap}.stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;padding:12px 16px 11px;border:1px solid #183454;border-radius:11px;background:linear-gradient(145deg,#04162c,#020c1d)}.metric label{display:block;color:#e1eafa;font-size:11px;margin-bottom:4px}.metric strong{font-size:20px;font-weight:650}.contrib,.languages,.wisdom{padding:13px 15px}.months{display:flex;justify-content:space-between;color:#a8bad8;font-size:10px;margin:7px 0 0}.heatmap{display:grid;grid-template-columns:repeat(26,minmax(0,1fr));gap:3px;margin-top:12px}.cell{aspect-ratio:1;border-radius:3px;background:#071b3b;min-width:0}.cell.l1{background:#142d74}.cell.l2{background:#273fc4}.cell.l3{background:#2868eb}.cell.l4{background:#7837f3}.langrow{display:grid;grid-template-columns:70px 1fr 37px;gap:8px;align-items:center;margin:7px 0;font-size:11px}.langname{display:flex;align-items:center;gap:6px;white-space:nowrap}.langdot{width:10px;height:10px;border-radius:50%;background:#1889ff;flex:none}.bar{height:12px;background:#102441;border-radius:10px;overflow:hidden}.bar span{height:100%;display:block;border-radius:10px;background:linear-gradient(90deg,#7548ff,#258dff)}.percent{text-align:right;color:#d4e0f5}.wisdom{border-color:#25205d;min-height:112px}.bigquote{font-size:29px;color:#804cff;line-height:.9;text-shadow:0 0 12px #873cff}.wisdom blockquote{font-size:12px;line-height:1.65;margin:4px 0 3px}.author{text-align:right;color:#a9bad6;font-size:11px}
+@keyframes shine{0%,100%{opacity:.35}50%{opacity:1}}@keyframes blink{50%{opacity:.2}}
+@media(max-width:1100px){.layout{grid-template-columns:250px minmax(0,1fr);gap:16px}.right{grid-column:1/-1;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-items:start}.hero-inner{padding-left:24px}.quote-top{display:none}}
+@media(max-width:760px){.topbar{padding:0 14px;gap:15px}.nav{display:none}.search{width:auto;flex:1}.topicon{display:none}.hero-inner{align-items:flex-start;padding:25px 18px;gap:16px;min-height:220px}.hero{min-height:220px}.avatar-ring{width:94px;height:94px}.identity h1{font-size:23px}.handle{font-size:14px;margin-bottom:8px}.headline,.tagline{font-size:12px}.meta{gap:8px;display:grid;font-size:11px}.layout{display:flex;flex-direction:column;padding:14px;gap:14px}.middle{order:0}.left{order:1}.right{order:2;display:flex}.terminal{height:165px;padding:15px}.terminal-content{margin:28px 0 0 4px}.hello{font-size:clamp(16px,4vw,23px)}.terminal-sub{margin-left:22px;font-size:12px}.laptop{width:75px;right:4%;top:75px;opacity:.65}.journey-grid{grid-template-columns:1fr}.goals{margin-top:5px}.project-grid{grid-template-columns:1fr}.project{min-height:120px}.heatmap{gap:2px}.cell{border-radius:2px}.cdac-row{gap:12px;flex-wrap:wrap}.cdac-name{font-size:14px}.cdac-logo{font-size:19px}}
 </style>
 </head>
 <body>
-<nav>
-  <a class="brand" href="https://github.com/Sohel-ML05">◉ Sohel-ML05</a>
-  <div class="navlinks">
-    <a href="#overview">Overview</a>
-    <a href="#projects">Repositories</a>
-    <a href="#projects">Projects</a>
-    <a href="https://github.com/Sohel-ML05?tab=stars">Stars</a>
-  </div>
-  <a href="https://github.com/Sohel-ML05" aria-label="GitHub profile">↗ GitHub</a>
-</nav>
-
-<header class="hero" id="overview">
-  <img class="avatar" id="avatar" src="https://github.com/Sohel-ML05.png" alt="Sohel's avatar">
-  <div>
-    <h1 id="name">Sohel Sayyad</h1>
-    <p class="muted" id="handle">@Sohel-ML05</p>
-    <p>Aspiring Software Engineer | HPC-AI Learner | Lifelong Learner</p>
-    <p>Turning curiosity into code 🚀</p>
-    <p class="muted">⌖ Chhatrapati Sambhajinagar, Maharashtra ·
-      <a href="https://github.com/Sohel-ML05">GitHub Profile ↗</a>
-    </p>
-  </div>
+<header class="topbar">
+<a class="brand" href="https://github.com/Sohel-ML05" target="_blank" rel="noreferrer"><span class="gh">●</span><span>SohelSayyad</span></a>
+<nav class="nav"><a class="active" href="#overview">Overview</a><a href="https://github.com/Sohel-ML05?tab=repositories" target="_blank">Repositories</a><a href="#projects">Projects</a><a href="https://github.com/Sohel-ML05?tab=packages" target="_blank">Packages</a><a href="https://github.com/Sohel-ML05?tab=stars" target="_blank">Stars</a></nav>
+<a class="search" href="https://github.com/search" target="_blank">⌕ &nbsp; Type to search...</a><a class="topicon" href="https://github.com/notifications" target="_blank" aria-label="Notifications">♧</a><a class="topicon" href="https://github.com/Sohel-ML05" target="_blank" aria-label="Profile">⊙</a>
 </header>
-
+<section class="hero" id="overview"><div class="hero-bg"></div><div class="hero-inner">
+<div class="avatar-ring"><img class="avatar" id="avatar" src="https://github.com/Sohel-ML05.png" alt="Sohel Sayyad avatar"></div>
+<div class="identity"><h1 id="name">Sohel Sayyad</h1><div class="handle" id="handle">@SohelSayyad</div><p class="headline">Aspiring Software Engineer | HPC-AI Learner | Lifelong Learner</p><p class="tagline">Turning curiosity into code 🚀</p><div class="meta"><span>⌖ &nbsp;Chhatrapati Sambhajinagar, Maharashtra</span><a href="https://www.linkedin.com/" target="_blank">♧ &nbsp;LinkedIn</a><span>▣ &nbsp;Joined Oct 2025</span></div></div>
+<div class="quote-top">“Build<br>Learn<br>Grow”</div></div></section>
 <main class="layout">
-  <aside class="left">
-    <section class="panel">
-      <h3><span>♙</span>About Me</h3>
-      <p>I graduated from Deogiri College, Chhatrapati Sambhajinagar. I'm currently on an ongoing C-DAC HPC-AI learning journey, strengthening my programming fundamentals and exploring new technologies.</p>
-      <hr style="border-color:var(--border);margin:18px 0">
-      <h3><span>⌘</span>Core Skills</h3>
-      <div class="skill-list">
-        <span class="skill">🐧 Linux</span><span class="skill">🌐 Networking</span>
-        <span class="skill">🐍 Python</span><span class="skill">⚙️ C++</span>
-        <span class="skill">🧮 HPC / Parallel</span><span class="skill">☁️ Cloud</span>
-        <span class="skill">Git</span>
-      </div>
-      <hr style="border-color:var(--border);margin:18px 0">
-      <h3><span>↗</span>Quick Links</h3>
-      <p>🔗 <a href="https://github.com/Sohel-ML05">GitHub Profile</a></p>
-      <p>💼 <a href="https://www.linkedin.com/">LinkedIn</a> (add your profile URL)</p>
-    </section>
-  </aside>
-
-  <section class="middle">
-    <section class="panel terminal">
-      <div class="dots"><i></i><i></i><i></i></div>
-      <div class="command">$ <span id="typed"></span><span class="cursor"></span></div>
-      <p class="muted">Exploring&nbsp; · &nbsp;Building&nbsp; · &nbsp;Growing</p>
-    </section>
-
-    <section class="panel section">
-      <h3><span>⚗</span>Current Learning Journey</h3>
-      <div class="learning">
-        <div><strong>C-DAC HPC-AI</strong><p class="muted">Ongoing learning journey</p></div>
-        <div><strong>My Goals</strong><p>✓ Strengthen programming fundamentals</p>
-          <p>✓ Build practical projects</p><p>✓ Gain hands-on experience</p>
-        </div>
-      </div>
-      <div class="progress"><div></div></div>
-      <small class="muted">Learning · Practice · Build · Grow</small>
-    </section>
-
-    <section class="panel section" id="projects">
-      <h3><span>▣</span>Featured Repositories <a class="muted" style="float:right" href="https://github.com/Sohel-ML05?tab=repositories">View all ↗</a></h3>
-      <div class="projects" id="repo-list">
-        <a class="project" href="https://github.com/Sohel-ML05">
-          <strong>Loading repositories…</strong><small>Fetching public GitHub data</small>
-        </a>
-      </div>
-      <p class="muted" id="repo-status" aria-live="polite"></p>
-    </section>
-  </section>
-
-  <aside class="right">
-    <section class="panel">
-      <h3><span>▥</span>GitHub Stats</h3>
-      <div class="stats">
-        <div class="stat">Public repos<b id="repos">—</b></div>
-        <div class="stat">Followers<b id="followers">—</b></div>
-        <div class="stat">Following<b id="following">—</b></div>
-        <div class="stat">Public gists<b id="gists">—</b></div>
-      </div>
-      <p><a href="https://github.com/Sohel-ML05?tab=repositories">Explore repositories ↗</a></p>
-    </section>
-
-    <section class="panel section">
-      <h3><span>▦</span>Contribution Activity</h3>
-      <a href="https://github.com/Sohel-ML05?tab=overview" title="View GitHub activity">
-        <img class="graph" src="https://ghchart.rshah.org/22d3ee/Sohel-ML05" alt="GitHub contribution chart" loading="lazy">
-      </a>
-      <small class="muted">Select the graph to open GitHub activity.</small>
-    </section>
-
-    <section class="panel section">
-      <h3><span>⌘</span>Languages</h3>
-      <div id="languages"><p class="muted">Loading repository languages…</p></div>
-    </section>
-
-    <section class="panel section">
-      <h3><span>❝</span>Daily Reminder</h3>
-      <p class="quote">“Small steps every day lead to big results.”</p>
-      <small class="muted">Build · Learn · Grow</small>
-    </section>
-  </aside>
+<aside class="panel left"><h2 class="section-title"><span class="ico">♙</span>About Me</h2><p class="about">I recently graduated from Deogiri College, Chhatrapati Sambhajinagar. I'm currently on an ongoing <b>C-DAC HPC-AI learning journey</b>, strengthening my programming fundamentals, problem-solving skills and exploring new technologies. I'm eager to gain hands-on experience, learn from experienced professionals and contribute to meaningful projects and organizations.</p><div class="rule"></div><h2 class="section-title"><span style="color:#18dcff">‹/›</span>Core Skills</h2><div class="skill-wrap"><span class="skill"><b>🐧</b> Linux</span><span class="skill"><b>♧</b> Networking</span><span class="skill"><b>🐍</b> Python</span><span class="skill"><b>🔵</b> C++</span><span class="skill"><b>▦</b> HPC / Parallel Computing</span><span class="skill"><b>☁</b> Cloud</span></div><div class="rule"></div><h2 class="section-title"><span style="color:#19dfff">♧</span>Quick Links</h2><div class="links"><a href="https://www.linkedin.com/" target="_blank"><span class="linkicon">▣</span>LinkedIn ↗</a><a href="mailto:sohel@example.com"><span class="linkicon">✉</span>Email ↗</a><a href="#" onclick="alert('Add your resume URL here when ready.');return false"><span class="linkicon">▤</span>Resume (Coming Soon) ↗</a><a href="#projects"><span class="linkicon">◎</span>Portfolio (Coming Soon) ↗</a></div></aside>
+<section class="middle">
+<div class="panel terminal"><div class="dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div><div class="terminal-content"><div class="hello"><span class="prompt">›</span><span id="typed">Hello, I’m </span><strong id="typedname">Sohel Sayyad</strong><span id="cursor" style="animation:blink .8s infinite">_</span></div><div class="terminal-sub">Exploring&nbsp; · &nbsp;Building&nbsp; · &nbsp;Growing&nbsp; ...</div></div><svg class="laptop" viewBox="0 0 150 105" fill="none" aria-hidden="true"><path d="M28 11 Q28 7 34 7 L125 7 Q131 7 131 13 L124 72 L20 72 Z" stroke="currentColor" stroke-width="2.5"/><path d="M38 17 L119 17 L114 61 L32 61 Z" stroke="#2485ff" stroke-width="1.5"/><path d="M60 35 L51 43 L60 50 M89 35 L98 43 L89 50 M80 30 L69 55" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M20 72 L124 72 L145 86 Q146 89 139 90 L8 90 Q2 89 6 85 Z" stroke="#a33cff" stroke-width="2.5"/><path d="M47 79 L100 79" stroke="#11d8ff" stroke-width="2"/></svg></div>
+<div class="panel journey"><h2 class="section-title"><span class="ico">⚗</span>Current Learning Journey</h2><div class="journey-grid"><div><div class="cdac-row"><div class="cdac-logo">सी डैक<small>C-DAC</small></div><div class="cdac-name">C-DAC HPC-AI</div><span class="badge">Ongoing</span></div><div class="progress"><span></span></div><div class="journey-foot"><span>Learning&nbsp; · &nbsp;Practice&nbsp; · &nbsp;Build&nbsp; · &nbsp;Grow</span><a class="arrow" href="https://www.cdac.in/" target="_blank">→</a></div></div><div class="goals"><h3>♻ My Goals</h3><ul><li>Strengthen programming fundamentals</li><li>Build real-world projects</li><li>Gain hands-on experience</li><li>Work with experienced professionals</li><li>Contribute to the organization</li></ul></div></div></div>
+<div class="panel projects" id="projects"><div class="project-head"><h2 class="section-title"><span class="ico">▱</span>Featured Projects</h2><a class="viewall" href="https://github.com/Sohel-ML05?tab=repositories" target="_blank">View all →</a></div><div class="project-grid"><a class="project" href="https://github.com/Sohel-ML05" target="_blank"><div class="project-symbol">♧</div><h3>Cloud Server Health Monitor</h3><p>psutil + Flask + Docker + Cloud</p><div class="project-bottom"><span class="status">Learning</span><span class="arrow">→</span></div></a><a class="project" href="https://github.com/Sohel-ML05" target="_blank"><div class="project-symbol">✿</div><h3>K8s + Slurm Bridge</h3><p>Distributed AI Training + Triton</p><div class="project-bottom"><span class="status progressing">In Progress</span><span class="arrow">→</span></div></a><a class="project" href="https://github.com/Sohel-ML05" target="_blank"><div class="project-symbol">▣</div><h3>GPU-Accelerated NLP</h3><p>Transformers + Deep Learning</p><div class="project-bottom"><span class="status">Planning</span><span class="arrow">→</span></div></a></div></div>
+<div class="motto"><span class="spark">❝</span><q>Small steps every day lead to big results</q><a href="https://github.com/Sohel-ML05" target="_blank" class="arrow">→</a></div>
+</section>
+<aside class="right">
+<div class="panel stats"><div class="right-head"><h2 class="section-title"><span class="ico">▥</span>GitHub Stats</h2><a class="small-link" href="https://github.com/Sohel-ML05" target="_blank">View profile →</a></div><div class="stats-grid"><div class="metric"><label>Total Repositories</label><strong id="repos">—</strong></div><div class="metric"><label>Total Commits</label><strong>—</strong></div><div class="metric"><label>Followers</label><strong id="followers">—</strong></div><div class="metric"><label>Following</label><strong id="following">—</strong></div></div></div>
+<div class="panel contrib"><div class="right-head"><h2 class="section-title"><span class="ico">▦</span>Contribution Graph</h2><span style="font-size:10px;color:#aabbd6">Last 12 months</span></div><a href="https://github.com/Sohel-ML05" target="_blank" aria-label="Open GitHub contributions"><div class="heatmap" id="heatmap"></div><div class="months"><span>Oct</span><span>Nov</span><span>Dec</span><span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span><span>May</span><span>Jun</span><span>Jul</span><span>Aug</span><span>Sep</span></div></a></div>
+<div class="panel languages"><h2 class="section-title"><span class="ico">‹/›</span>Languages</h2><div id="languages"><p style="font-size:12px;color:#a9bddc">Loading language data from public repositories…</p></div></div>
+<div class="panel wisdom"><div class="bigquote">❝</div><blockquote>“The best way to predict your future<br> is to create it.”</blockquote><div class="author">— Abraham Lincoln</div></div>
+</aside>
 </main>
-
-<footer>
-  <p>while (learning) { keep_building(); }</p>
-  <a href="https://github.com/Sohel-ML05">Made with curiosity · Sohel-ML05 ↗</a>
-</footer>
-
 <script>
-const USER = "Sohel-ML05";
-const API = `https://api.github.com/users/${USER}`;
-
-const lines = [
-  "whoami → Sohel Sayyad",
-  "learning --track HPC-AI",
-  "building --with Python & C++",
-  "echo \"Never stop learning\""
-];
-let lineIndex = 0, charIndex = 0, deleting = false;
-const typed = document.getElementById("typed");
-
-function typeTerminal() {
-  const line = lines[lineIndex];
-  typed.textContent = line.slice(0, charIndex);
-  if (!deleting) {
-    charIndex++;
-    if (charIndex > line.length) {
-      deleting = true;
-      setTimeout(typeTerminal, 1300);
-      return;
-    }
-  } else {
-    charIndex--;
-    if (charIndex < 0) {
-      deleting = false;
-      lineIndex = (lineIndex + 1) % lines.length;
-      charIndex = 0;
-    }
-  }
-  setTimeout(typeTerminal, deleting ? 28 : 65);
-}
-typeTerminal();
-
-async function loadGitHub() {
-  try {
-    const response = await fetch(API);
-    if (!response.ok) throw new Error("GitHub API unavailable");
-    const user = await response.json();
-    document.getElementById("name").textContent = user.name || USER;
-    document.getElementById("handle").textContent = "@" + user.login;
-    document.getElementById("avatar").src = user.avatar_url;
-    document.getElementById("repos").textContent = user.public_repos;
-    document.getElementById("followers").textContent = user.followers;
-    document.getElementById("following").textContent = user.following;
-    document.getElementById("gists").textContent = user.public_gists;
-
-    const repoResponse = await fetch(
-      `https://api.github.com/users/${USER}/repos?sort=updated&per_page=100`
-    );
-    if (!repoResponse.ok) throw new Error("Repositories unavailable");
-    const repos = await repoResponse.json();
-
-    const repoList = document.getElementById("repo-list");
-    repoList.replaceChildren();
-
-    repos.filter(r => !r.fork).slice(0, 6).forEach(repo => {
-      const card = document.createElement("a");
-      card.className = "project";
-      card.href = repo.html_url;
-      card.target = "_blank";
-      card.rel = "noopener noreferrer";
-
-      const title = document.createElement("strong");
-      title.textContent = "⌘ " + repo.name;
-      const desc = document.createElement("small");
-      desc.textContent = repo.description || "Open repository to explore code.";
-      const details = document.createElement("small");
-      details.style.display = "block";
-      details.style.marginTop = "8px";
-      details.textContent = `★ ${repo.stargazers_count} · ${repo.language || "Other"}`;
-
-      card.append(title, desc, details);
-      repoList.append(card);
-    });
-
-    if (!repoList.children.length) {
-      repoList.textContent = "No non-fork public repositories found yet.";
-    }
-    document.getElementById("repo-status").textContent =
-      "Repository data loaded from GitHub's public API.";
-
-    const languageTotals = {};
-    repos.filter(r => !r.fork).forEach(r => {
-      if (r.language) languageTotals[r.language] =
-        (languageTotals[r.language] || 0) + (r.size || 1);
-    });
-    const sorted = Object.entries(languageTotals)
-      .sort((a,b) => b[1]-a[1]).slice(0, 6);
-    const total = sorted.reduce((sum, item) => sum + item[1], 0) || 1;
-    const languages = document.getElementById("languages");
-    languages.replaceChildren();
-
-    sorted.forEach(([name, value]) => {
-      const row = document.createElement("div");
-      const label = document.createElement("div");
-      label.style.display = "flex";
-      label.style.justifyContent = "space-between";
-      const title = document.createElement("span");
-      title.textContent = name;
-      const percent = document.createElement("span");
-      percent.textContent = Math.round(value / total * 100) + "%";
-      label.append(title, percent);
-      const bar = document.createElement("div");
-      bar.className = "bar";
-      const fill = document.createElement("div");
-      fill.style.width = (value / total * 100) + "%";
-      bar.append(fill);
-      row.append(label, bar);
-      languages.append(row);
-    });
-    if (!sorted.length) languages.textContent =
-      "Language statistics appear when public repositories contain code.";
-  } catch (error) {
-    document.getElementById("repo-status").textContent =
-      "GitHub data could not load right now. Open the profile to view live data.";
-    document.getElementById("repo-list").innerHTML =
-      '<a class="project" href="https://github.com/Sohel-ML05">Open GitHub profile ↗</a>';
-    document.getElementById("languages").textContent =
-      "Language data temporarily unavailable.";
-  }
-}
-loadGitHub();
+const username="Sohel-ML05";
+const heat=document.getElementById("heatmap");
+for(let i=0;i<364;i++){let c=document.createElement("span");c.className="cell";c.style.opacity=".35";heat.appendChild(c)}
+const messages=[["Hello, I’m ","Sohel Sayyad"],["Exploring ","HPC + AI"],["Building ","real-world projects"],["Growing ","every day"]];let current=0;
+setInterval(()=>{current=(current+1)%messages.length;document.getElementById("typed").textContent=messages[current][0];document.getElementById("typedname").textContent=messages[current][1]},2600);
+fetch(`https://api.github.com/users/${username}`).then(r=>{if(!r.ok)throw Error("GitHub API unavailable");return r.json()}).then(d=>{document.getElementById("avatar").src=d.avatar_url;document.getElementById("repos").textContent=d.public_repos;document.getElementById("followers").textContent=d.followers;document.getElementById("following").textContent=d.following;document.getElementById("name").textContent=d.name||"Sohel Sayyad";document.getElementById("handle").textContent="@"+d.login}).catch(()=>{});
+fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=100`).then(r=>r.json()).then(repos=>{if(!Array.isArray(repos))throw Error();const counts={};repos.filter(r=>!r.fork).forEach(r=>{if(r.language)counts[r.language]=(counts[r.language]||0)+(r.size||1)});const sorted=Object.entries(counts).sort((a,b)=>b[1]-a[1]).slice(0,6);const total=sorted.reduce((s,x)=>s+x[1],0);const el=document.getElementById("languages");el.innerHTML="";if(!total){el.textContent="No public language data yet.";return}sorted.forEach(([name,n])=>{const pct=n/total*100,row=document.createElement("div");row.className="langrow";const label=document.createElement("span");label.className="langname";const dot=document.createElement("i");dot.className="langdot";label.append(dot,document.createTextNode(name));const bar=document.createElement("div");bar.className="bar";const fill=document.createElement("span");fill.style.width=pct+"%";bar.append(fill);const percent=document.createElement("span");percent.className="percent";percent.textContent=pct.toFixed(1)+"%";row.append(label,bar,percent);el.append(row)})}).catch(()=>{document.getElementById("languages").innerHTML='<p style="font-size:12px;color:#a9bddc">Language data could not be loaded.</p>'});
 </script>
 </body>
 </html>
